@@ -1,0 +1,24 @@
+class Solution {
+    public int findLucky(int[] arr) {
+        
+        HashMap<Integer, Integer> lucky = new HashMap<>();
+        for(int i=0 ; i<arr.length ; i++){
+            if(lucky.containsKey(arr[i])){
+                lucky.put(arr[i],lucky.get(arr[i])+1);
+            }else{
+                lucky.put(arr[i],1);
+            }
+        }
+        int max = -1;
+        System.out.println(lucky);
+        for(int i=0 ; i<arr.length ; i++){
+            if(lucky.get(arr[i])==arr[i]){
+                if(arr[i]>max){
+                    max = arr[i];
+                }
+            }
+        }
+        return max;        
+        
+    }
+}
