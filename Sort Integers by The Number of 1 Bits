@@ -1,0 +1,28 @@
+class Solution {
+    public int[] sortByBits(int[] arr) {
+        int bitNo[] = new int[arr.length];
+        for(int i=0 ; i<arr.length ; i++){
+            int count = 0;
+            for(int j=0 ; j<=31 ; j++){
+                int bit = (arr[i]>>j)&1;
+                if(bit == 1){
+                    count++;
+                    }
+            }bitNo[i] = count;
+            }for(int i=0 ; i<arr.length-1 ; i++){
+                for(int j=0 ; j<arr.length-1-i ; j++){
+                    if(bitNo[j]>bitNo[j+1] || bitNo[j]==bitNo[j+1] && arr[j]>arr[j+1]){
+                         int temp = bitNo[j];
+                        bitNo[j] = bitNo[j+1];
+                        bitNo[j+1]= temp;
+
+                        temp = arr[j];
+                        arr[j] = arr[j+1];
+                        arr[j+1] = temp;
+                    }
+                }
+            }
+
+        return arr;
+    }
+}
