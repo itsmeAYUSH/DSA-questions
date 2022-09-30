@@ -4,7 +4,6 @@ class Solution {
         int n = pushed.length;
         
         int j=0;
-        // for(int i=0 ; i< n ; i++){
                 for (int x: pushed) {
 
             stack.push(x);
