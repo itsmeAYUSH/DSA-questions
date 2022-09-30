@@ -1,0 +1,46 @@
+class Solution {
+    public int[] sortArray(int[] nums) {
+        divide(nums,0,nums.length-1);
+        return nums;
+    }
+    public static void divide(int nums[], int i, int j) {
+        if (i >= j) {
+            return;
+        }
+        int mid = (i + j) / 2;
+        divide(nums, i, mid);
+        divide(nums, mid + 1, j);
+        merge(nums, i, mid, mid + 1, j);
+    }
+            public static void merge(int nums[] , int start1 , int end1,int start2 , int end2 ){
+            int b[] = new int[end2-start1+1];
+            int counter = 0;
+            int i = start1;
+            int j = start2;
+            while(i<=end1 && j<=end2){
+                if(nums[i]<nums[j]){
+                    b[counter] = nums[i];
+                    i++;
+                    counter++;
+                }else{
+                    b[counter]=nums[j];
+                    j++;
+                    counter++;
+                }
+            }while(i<=end1){
+                b[counter]=nums[i];
+                i++;
+                counter++;
+            }while(j<=end2){
+                b[counter]=nums[j];
+                j++;
+                counter++;
+            }
+            counter=0;
+            for(i=start1 ; i<=end2 ; i++){
+                nums[i]=b[counter];
+                counter++;
+            }
+
+        }
+}
