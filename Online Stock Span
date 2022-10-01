@@ -1,0 +1,35 @@
+class StockSpanner {
+    Stack <Integer> pricestack = new Stack<>();
+    Stack <Integer> currstack = new Stack<>();
+    int count;
+    public StockSpanner() {
+        pricestack = new Stack<>();
+        currstack = new Stack<>();
+        count = 0;
+    }
+    
+    public int next(int price) {
+        if (pricestack.isEmpty()){
+            pricestack.push(price);
+            currstack.push(1);
+            return currstack.peek();
+        }else{
+            if (pricestack.peek()>price){
+                pricestack.push(price);
+                currstack.push(1);
+                return currstack.peek();
+            }else{
+                count=0;
+                while((!pricestack.isEmpty()) && pricestack.peek()<=price){
+                    count=count+currstack.peek();
+                    currstack.pop();
+                    pricestack.pop();
+                    
+                }
+                pricestack.push(price);
+                currstack.push(count+1);
+                return currstack.peek();
+            }
+        }
+    }
+}
