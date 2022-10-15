@@ -1,0 +1,42 @@
+class Solution {
+  divide(N,head){
+    let even = null;
+    let odd = null;
+    let o = null;
+    let e = null;
+    while(head){
+        if(head.data % 2 == 0 ){
+            if(even == null){
+               even = head;
+               e = head;
+            }
+            else{
+                e.next = head;
+                e = e.next;
+            }
+        }
+        
+        else{
+             if(odd == null){
+               odd = head;
+               o = head;
+            }
+            else{
+                o.next = head;
+                o = o.next;
+            }  
+        }
+        head = head.next;
+    }
+    if(e){
+        e.next = odd;
+    }
+    if(o){
+        o.next = null;
+    }
+    if(even) {
+        return even
+    }
+    return odd;
+  }
+}
