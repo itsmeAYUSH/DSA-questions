@@ -1,0 +1,19 @@
+class Solution {
+    //Function to check if the linked list has a loop.
+    detectLoop(head)
+    {   
+        let flag = 0;
+       let slow = head;
+       let fast = head;
+       
+       while(slow != null && fast != null && fast.next != null){
+           slow=slow.next;
+           fast=fast.next.next;
+           if(slow == fast){
+               flag = 1;
+               break;
+           }
+       }return flag;
+    }
+    
+}
