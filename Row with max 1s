@@ -1,0 +1,21 @@
+class Solution {
+    
+    rowWithMax1s(arr, n, m){
+        // code here
+        let max =0;
+        let index = -1;
+        for(let i=0 ; i<n ; i++){
+            let counter = 0;
+            for(let j=0;j<m ; j++){
+                if(arr[i][j]==1){
+                    counter++;
+                }
+            }if(counter>max){
+                max =counter;
+                index = i;
+            }
+        }
+        return index;
+        
+    }
+}
