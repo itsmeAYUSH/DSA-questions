@@ -1,0 +1,12 @@
+class Solution {
+    doUnion(a, n, b, m){
+    let countset = new Set();
+        for(let i=0 ; i<n ; i++){
+            countset.add(a[i])
+        }
+        for(let i=0 ; i<m ; i++){
+            countset.add(b[i])
+        }
+        return countset.size;
+    }
+}
