@@ -1,0 +1,15 @@
+class Solution {
+    
+    isPalindrome(s){
+        let l=0;
+        let h=s.length-1;
+        while(l<h){
+            if(s[l]!=s[h]){
+                return 0;
+            }
+            l++;
+            h--;
+        }
+        return 1;
+    }
+}
