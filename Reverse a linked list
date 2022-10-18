@@ -1,0 +1,18 @@
+class Solution {
+    //Function to reverse a linked list.
+    reverseList(head)
+    {
+        //your code here
+    let current = head;
+    let forward = null;
+    let previous = null;
+    while(current!=null){
+        forward = current.next;
+        current.next = previous;
+        previous=current;
+        current=forward;
+        }
+        return previous;
+    }
+    
+}
