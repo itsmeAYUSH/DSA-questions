@@ -1,0 +1,10 @@
+var reverseString = function(s) {
+    let l = 0;
+    let h = s.length-1;
+    while(l<h){
+        [s[l],s[h]]=[s[h],s[l]]
+        l++;
+        h--;
+    }console.log(s);
+
+};
